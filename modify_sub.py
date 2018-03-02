@@ -1,8 +1,14 @@
 import os
-import re
+import re, shutil
 
-path = os.getcwd()
+path = os.getcwd() 
+print  os.path.exists(path + '/output') 
 
+if os.path.exists(path + '/output') :
+	shutil.rmtree('output')
+        print 'output deleted'
+
+os.system('mkdir -p output/modify')
 files = os.listdir(path)
 #print files
 for filename in files:
