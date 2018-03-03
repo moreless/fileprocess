@@ -6,7 +6,7 @@ print  os.path.exists(path + '/output')
 
 if os.path.exists(path + '/output') :
 	shutil.rmtree('output')
-        print 'output deleted'
+        print 'find old output folder, deleted'
 
 os.system('mkdir -p output/modify')
 files = os.listdir(path)
@@ -81,3 +81,36 @@ for filename in files:
 
 		file.close()
 		output_file.close()
+
+os.chdir('output')
+print os.getcwd()
+
+path = os.getcwd()
+#path ='/Users/yong/Music/youtube1/output'
+#print path
+#for file in glob.glob("*.txt"):
+#    print(file)
+
+files = os.listdir(path)
+#print files
+for filename in files:
+	r = re.compile('.*\.txt')
+	if r.match(filename):
+		match = re.search('(.*)\.txt', filename)
+		with open(filename, "rt") as fin:
+			with open('modify/'+match.group(1)+'.mod', "wt") as fout:
+				for line in fin:
+					fout.write(line.replace('&gt;', '>'))
+
+path = path+'/modify/'
+#print path
+for fileName in os.listdir("./modify/"):
+	#print path+fileName
+	os.rename(path+fileName, (path+fileName).replace(".mod", ".txt"))
+
+os.chdir('modify')
+os.system('mv *.txt ../../')
+print os.getcwd()
+os.chdir('../..')
+print os.getcwd()
+shutil.rmtree('output')
