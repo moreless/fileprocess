@@ -13,4 +13,4 @@ for filename in files:
         audio = MP3(path+'/'+filename)
         total_time += audio.info.length/3600
         print audio.info.length/3600
-print 'Total time is %0.2f' % total_time
+print 'Total time is %0.2f' % total_time, 'hours'

@@ -16,7 +16,7 @@ for filename in files:
 		#print filename
 		#print match.group(1)
                 size = os.path.getsize(filename)
-		if size <100:
+		if size <200:
 			print 'small txt file, removing... ', filename, size
                 	os.remove(filename)
 			os.remove(match.group(1)+'.mp3')

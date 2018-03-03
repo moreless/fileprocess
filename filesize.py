@@ -22,6 +22,6 @@ for filename in files:
 		#print match.group(1)
 		tsize = os.path.getsize(filename)
 		txt_total_size +=tsize
-print 'total mp3 size', total_size
-print 'total txt size', txt_total_size
+print 'total mp3 size is', total_size, 'bits'
+print 'total txt size is', txt_total_size, 'bits'
 
